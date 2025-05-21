@@ -176,3 +176,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 >>>>>>> eb0f9b048ea7f1c8103c0cdbb4a7eb0a345cfd06
+
+.venv/
