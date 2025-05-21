@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Symptom Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Symptom Checker</h1>
+
+    <form action="{{ url_for('add_symptom') }}" method="post" class="form-inline">
+      <input type="text" name="symptom" placeholder="Enter a symptom..." required>
+      <button type="submit">Add</button>
+    </form>
+
+    <div class="symptom-list">
+      <h2>Symptoms</h2>
+      <ul>
+        {% for symptom in symptoms %}
+          <li>{{ symptom }}</li>
+        {% else %}
+          <li>No symptoms added.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <form action="{{ url_for('get_diagnosis') }}" method="post">
+      <button type="submit" class="diagnosis-btn" {% if not symptoms %}disabled{% endif %}>Get Diagnosis</button>
+    </form>
+  </div>
+</body>
+</html>
+

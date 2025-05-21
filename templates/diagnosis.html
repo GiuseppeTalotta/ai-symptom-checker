@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diagnosis Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Diagnosis Result</h1>
+
+    <h2>Symptoms submitted:</h2>
+    <ul>
+      {% for symptom in symptoms %}
+        <li>{{ symptom }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>AI Diagnosis:</h2>
+    <p>{{ diagnosis }}</p>
+
+    <a href="{{ url_for('home') }}" class="back-btn">← Back to Home</a>
+  </div>
+</body>
+</html>
